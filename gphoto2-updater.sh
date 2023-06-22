@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Gphoto2 compiler and installer script
@@ -30,7 +31,8 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+LATEST_STABLE_LIBGPHOTO_VERSION=2_5_27
+LATEST_STABLE_GPHOTO_VERSION=2_5_27
 . ./.env
 display_version=$(echo "libgphoto ${LATEST_STABLE_LIBGPHOTO_VERSION}; gphoto ${LATEST_STABLE_GPHOTO_VERSION}" | tr '_' '.')
 branch_libgphoto=''
@@ -64,13 +66,16 @@ then
 fi
 eval set -- "$all_options"
 
+LATEST_STABLE_LIBGPHOTO_VERSION=2_5_27
+LATEST_STABLE_GPHOTO_VERSION=2_5_27
+
 while true
 do
     case "$1" in
         -h|--help)          usage;;
         -d|--development)   shift 1;;
-        -s|--stable)        branch_libgphoto="--branch v2.5.27"
-                            branch_gphoto="--branch v2.5.27"
+        -s|--stable)        branch_libgphoto="--branch libgphoto2-${LATEST_STABLE_LIBGPHOTO_VERSION}-release"
+                            branch_gphoto="--branch gphoto2-${LATEST_STABLE_GPHOTO_VERSION}-release"
                             shift 1;;
         --)                 break ;;
     esac
@@ -79,6 +84,8 @@ done
 
 menu()
 {
+LATEST_STABLE_LIBGPHOTO_VERSION=2_5_27
+LATEST_STABLE_GPHOTO_VERSION=2_5_27
 PS3='Please enter your choice: '
 options=("Install last development version"
          "Install last stable release (${display_version})"
@@ -97,8 +104,8 @@ do
 						echo
             echo "\"Install last stable release (${display_version})\" selected"
 						echo
-						branch_libgphoto="--branch v2.5.27"
-						branch_gphoto="--branch v2.5.27"
+						branch_libgphoto="--branch libgphoto2-${LATEST_STABLE_LIBGPHOTO_VERSION}-release"
+						branch_gphoto="--branch gphoto2-${LATEST_STABLE_GPHOTO_VERSION}-release"
 						break
             ;;
         "Quit")
