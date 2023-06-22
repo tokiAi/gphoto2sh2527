@@ -69,8 +69,8 @@ do
     case "$1" in
         -h|--help)          usage;;
         -d|--development)   shift 1;;
-        -s|--stable)        branch_libgphoto="--branch libgphoto2-${LATEST_STABLE_LIBGPHOTO_VERSION}-release"
-                            branch_gphoto="--branch gphoto2-${LATEST_STABLE_GPHOTO_VERSION}-release"
+        -s|--stable)        branch_libgphoto="--branch v2.5.27"
+                            branch_gphoto="--branch v2.5.27"
                             shift 1;;
         --)                 break ;;
     esac
@@ -97,8 +97,8 @@ do
 						echo
             echo "\"Install last stable release (${display_version})\" selected"
 						echo
-						branch_libgphoto="--branch libgphoto2-${LATEST_STABLE_LIBGPHOTO_VERSION}-release"
-						branch_gphoto="--branch gphoto2-${LATEST_STABLE_GPHOTO_VERSION}-release"
+						branch_libgphoto="--branch v2.5.27"
+						branch_gphoto="--branch v2.5.27"
 						break
             ;;
         "Quit")
